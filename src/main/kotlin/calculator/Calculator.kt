@@ -5,9 +5,25 @@ class Calculator {
     fun splitInput(input: String): String {
 
 
-        val splitNumbers = input.split(",", ":").toString()
 
-        return splitNumbers
+    fun splitInput(input: String): Int {
+
+        var numbersStrings = input.split(",", ":").toString()
+            .replace(Regex("[^\\d]"),"").toIntOrNull()!!
+
+
+        if (hasCustomDelimiter(InputView().readStringInput())) {
+
+            numbersStrings = specifyCustomDelimiter(InputView().readStringInput())
+                .replace(Regex("[^\\d]"),"").toIntOrNull()!!
+
+            return numbersStrings
+
+        } else {
+
+            return numbersStrings
+
+        }
 
     }
 
