@@ -2,11 +2,20 @@ package calculator
 
 class Calculator {
 
-    fun calculateNumbers (numbers: String): Int{
+    fun calculateNumbers (input: String): Int{
 
-        val calculation = listOf(splitInput(InputView().readStringInput())).sum()
-        
-        return calculation
+        val numberList = splitInput(input)
+
+        var resultNumber = 0
+        for (char in numberList ) {
+
+            val digit = char.digitToInt()
+
+            resultNumber += digit
+
+        }
+
+        return resultNumber
 
     }
 
