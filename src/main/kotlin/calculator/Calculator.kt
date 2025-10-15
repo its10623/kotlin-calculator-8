@@ -2,8 +2,13 @@ package calculator
 
 class Calculator {
 
-    fun splitInput(input: String): String {
+    fun calculateNumbers (numbers: String): Int{
 
+        val calculation = listOf(splitInput(InputView().readStringInput())).sum()
+        
+        return calculation
+
+    }
 
 
     fun splitInput(input: String): Int {
