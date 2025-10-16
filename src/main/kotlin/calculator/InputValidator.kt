@@ -18,8 +18,8 @@ class InputValidator {
             } else {
 
                 if (char != CalculatorConstants.DELIMITER_FIRST
-                    || char != CalculatorConstants.DELIMITER_SECOND
-                    || char.digitToIntOrNull() == null) {
+                    && char != CalculatorConstants.DELIMITER_SECOND
+                    && char.digitToIntOrNull() == null) {
 
                     throw IllegalArgumentException(CalculatorConstants.ERROR_INVALID_INPUT)
 
