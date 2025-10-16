@@ -1,5 +1,11 @@
 package calculator
 
 fun main() {
-    // TODO: 프로그램 구현
+
+    println(OutputView().printInputMessage())
+
+    print(OutputView().printResultMessage())
+
+    println(Calculator().calculateNumbers(InputValidator().validateDelimiterAndNumber(InputView().readStringInput())))
+
 }
