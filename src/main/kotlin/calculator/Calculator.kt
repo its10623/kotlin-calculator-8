@@ -52,20 +52,9 @@ class Calculator {
 
     fun hasCustomDelimiter(input: String): Boolean {
 
-        val customDelimiterStartRange = input.substring(0..1)
-        val customDelimiterEndRange = input.substring(3..4)
-
-        if (customDelimiterStartRange == CalculatorConstants.CUSTOM_DELIMITER_START) {
-
-            if (customDelimiterEndRange == CalculatorConstants.CUSTOM_DELIMITER_END) {
-
-                CalculatorConstants.BOOLEAN = true
-
-            }
-
-        }
-
-        return CalculatorConstants.BOOLEAN
+        val customDelimiterBoolean = input.startsWith(CalculatorConstants.CUSTOM_DELIMITER_START)
+        
+        return customDelimiterBoolean
     }
 
     fun specifyCustomDelimiter(input: String): String {
