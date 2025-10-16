@@ -7,7 +7,8 @@ class Calculator {
         val numberList = splitInput(input)
 
         var resultNumber = 0
-        for (char in numberList ) {
+
+        for (char in numberList.toString()) {
 
             val digit = char.digitToInt()
 
@@ -20,15 +21,16 @@ class Calculator {
     }
 
 
-    fun splitInput(input: String): String {
+    fun splitInput(input: String): Int? {
 
-        var numbersStrings = input.split(",", ":").toString()
-            .replace(Regex("[^\\d]"),"")
+        var numbersStrings = input.split(CalculatorConstants.DELIMITER_FIRST,
+            CalculatorConstants.DELIMITER_SECOND).toString()
+            .replace(Regex("[^\\d]"),"").toIntOrNull()
 
         if (hasCustomDelimiter(input)) {
 
             numbersStrings = specifyCustomDelimiter(input)
-                .replace(Regex("[^\\d]"),"")
+                .replace(Regex("[^\\d]"),"").toIntOrNull()
 
             return numbersStrings
 
@@ -70,10 +72,10 @@ class Calculator {
 
         val numberPart = input.substring(5)
 
-        CalculatorConstants.CUSTOM_DELIMITER_RESULT = numberPart
+        CalculatorConstants.CUSTOM_DELIMITER_NUMBER_RESULT = numberPart
             .split(splitCustomDelimiter(input)).toString()
 
-        return CalculatorConstants.CUSTOM_DELIMITER_RESULT
+        return CalculatorConstants.CUSTOM_DELIMITER_NUMBER_RESULT
 
     }
 
