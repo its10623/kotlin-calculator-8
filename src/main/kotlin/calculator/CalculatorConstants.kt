@@ -7,9 +7,12 @@ object CalculatorConstants {
     const val RESULT_OUTPUT = "결과 : "
     const val CUSTOM_DELIMITER_START = "//"
     const val CUSTOM_DELIMITER_END = """\n"""
+    const val DELIMITER_FIRST = ','
+    const val DELIMITER_SECOND = ':'
 
-    const val ERROR_INVALID_INPUT = "1 이상의 숫자와 구분자만 입력해 주세요."
+    const val ERROR_INVALID_INPUT = "잘못된 값이 입력 되었습니다."
 
-    var CUSTOM_DELIMITER_RESULT = ""
+    var CUSTOM_DELIMITER_NUMBER_RESULT = ""
+    var BOOLEAN = false
 
 }
