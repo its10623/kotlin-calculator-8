@@ -14,6 +14,4 @@ object CalculatorConstants {
     const val RESULT_NUMBER = 0
     const val REPLACE_REGEX_PATTERN = "[^\\d]"
 
-
-
 }
