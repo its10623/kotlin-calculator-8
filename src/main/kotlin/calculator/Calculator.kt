@@ -5,18 +5,16 @@ class Calculator {
     // 덧셈 계산 로직 함수
     fun calculateNumbers(input: String): Int {
 
-        // 순회할 숫자 문자열 변수
-        val numberStrings = getNumbersAsString(input)
+        // 숫자를 합산하여 저장할 변수
+        var sumNumber = 0
 
-        // 덧셈 계산 후 저장할 비어 있는 변수
-        var resultNumber = CalculatorConstants.RESULT_NUMBER
+        // 커스텀 구분자가 맞는지 확인
+        if (hasCustomDelimiter(input)) {
 
-        // 문자열을 순회하여 각 문자를 숫자로 변환하여 합산하고 resultNumber 변수에 저장
-        for (char in numberStrings) {
+            sumNumber = input.split(getCustomDelimiter(input),
+                "/", "\\", "n").sumOf { it.toIntOrNull() ?: 0 }
 
-            val digit = char.digitToInt()
-
-            resultNumber += digit
+            return sumNumber
 
         }
 
@@ -27,22 +25,13 @@ class Calculator {
 
     }
 
-    fun getNumbersAsString(input: String): String {
-
-        // 기본 구분자, 커스텀 구분자를 제외한 숫자만 저장할 변수
-        val numbersStrings = input.replace(Regex(CalculatorConstants.REPLACE_REGEX_PATTERN), "")
-
-        return numbersStrings
-
+    // 커스텀 구분자를 가져올 함수
+    fun getCustomDelimiter(input: String): String {
+        return input[CalculatorConstants.CUSTOM_DELIMITER_INDEX].toString()
     }
 
-    fun splitCustomDelimiter(input: String): String {
-
-        // 커스텀 구분자를 저장할 변수
-        val customDelimiter = input[CalculatorConstants.CUSTOM_DELIMITER_INDEX].toString()
-
-        return customDelimiter
-
+    // 커스텀 구분자를 지정하는지 확인
+    fun hasCustomDelimiter(input: String): Boolean {
+        return input.startsWith(CalculatorConstants.CUSTOM_DELIMITER_START)
     }
-
 }

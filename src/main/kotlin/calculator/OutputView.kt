@@ -3,16 +3,18 @@ package calculator
 class OutputView {
 
     // 입력 문구 기능 구현
-    fun printInputMessage(): String{
+    fun printInputMessage() {
 
-        return CalculatorConstants.INPUT
+        println(CalculatorConstants.INPUT_MESSAGE)
 
     }
 
     // 출력 결과 문구 기능 구현
-    fun printResultMessage(): String {
+    fun printResultMessage(result: String) {
 
-        return CalculatorConstants.RESULT_OUTPUT
+        val outputMessage = CalculatorConstants.RESULT_OUTPUT_MESSAGE
+
+        println("${outputMessage}${result}")
 
     }
 

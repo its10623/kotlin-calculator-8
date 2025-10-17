@@ -3,12 +3,16 @@ package calculator
 fun main() {
 
     // 입력 문구 출력
-    println(OutputView().printInputMessage())
+    OutputView().printInputMessage()
 
-    // 출력 문구 출력
-    print(OutputView().printResultMessage())
+    // 입력 변수
+    val input = InputView().readStringInput()
+    // 검증된 깨끗한 입력 변수
+    val cleanInput = InputValidator().validateDelimiterAndNumber(input)
+    // 계산 로직
+    val result = Calculator().calculateNumbers(cleanInput).toString()
 
-    // 핵심 로직 출력
-    println(Calculator().calculateNumbers(InputValidator().validateDelimiterAndNumber(InputView().readStringInput())))
+    // 결과 출력
+    OutputView().printResultMessage(result)
 
 }
