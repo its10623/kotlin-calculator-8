@@ -20,7 +20,10 @@ class Calculator {
 
         }
 
-        return resultNumber
+        sumNumber = input.split(CalculatorConstants.DEFAULT_DELIMITER_PREFIX
+            , CalculatorConstants.DEFAULT_DELIMITER_POSTFIX).sumOf { it.toIntOrNull() ?: 0}
+
+        return sumNumber
 
     }
 
