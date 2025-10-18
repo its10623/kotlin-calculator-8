@@ -32,6 +32,10 @@ class Calculator {
 
     // 커스텀 구분자를 지정하는지 확인
     fun hasCustomDelimiter(input: String): Boolean {
-        return input.startsWith(CalculatorConstants.CUSTOM_DELIMITER_START)
+
+        val customDelimiterStart = input.startsWith(CalculatorConstants.CUSTOM_DELIMITER_START)
+        val customDelimiterEnd = input.contains(CalculatorConstants.CUSTOM_DELIMITER_END)
+
+        return customDelimiterStart && customDelimiterEnd
     }
 }

@@ -8,6 +8,7 @@ object CalculatorConstants {
     const val ERROR_INVALID_INPUT_MESSAGE = "잘못된 값이 입력 되었습니다."
 
     const val CUSTOM_DELIMITER_START = "//"
+    const val CUSTOM_DELIMITER_END = "\\n"
     const val CUSTOM_DELIMITER_INDEX = 2
     const val DEFAULT_DELIMITER_PREFIX = ','
     const val DEFAULT_DELIMITER_POSTFIX = ':'
